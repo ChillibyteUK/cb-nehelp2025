@@ -2366,7 +2366,9 @@ textarea.form-control-lg {
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
 }
-.btn-check[disabled] + .btn, .form_block .btn-check[disabled] + input[type=submit], .btn-check:disabled + .btn, .form_block .btn-check:disabled + input[type=submit] {
+.btn-check[disabled] + .btn, .form_block .btn-check[disabled] + input[type=submit], .btn-check[disabled] + .btn-previous,
+.btn-check[disabled] + .btn-next, .btn-check:disabled + .btn, .form_block .btn-check:disabled + input[type=submit], .btn-check:disabled + .btn-previous,
+.btn-check:disabled + .btn-next {
   pointer-events: none;
   filter: none;
   opacity: 0.65;
@@ -2561,11 +2563,13 @@ textarea.form-control-lg {
 .input-group > .form-floating:focus-within {
   z-index: 5;
 }
-.input-group .btn, .input-group .form_block input[type=submit], .form_block .input-group input[type=submit] {
+.input-group .btn, .input-group .form_block input[type=submit], .form_block .input-group input[type=submit], .input-group .btn-previous,
+.input-group .btn-next {
   position: relative;
   z-index: 2;
 }
-.input-group .btn:focus, .input-group .form_block input[type=submit]:focus, .form_block .input-group input[type=submit]:focus {
+.input-group .btn:focus, .input-group .form_block input[type=submit]:focus, .form_block .input-group input[type=submit]:focus, .input-group .btn-previous:focus,
+.input-group .btn-next:focus {
   z-index: 5;
 }
 
@@ -2588,7 +2592,9 @@ textarea.form-control-lg {
 .input-group-lg > .form-select,
 .input-group-lg > .input-group-text,
 .input-group-lg > .btn,
-.form_block .input-group-lg > input[type=submit] {
+.form_block .input-group-lg > input[type=submit],
+.input-group-lg > .btn-previous,
+.input-group-lg > .btn-next {
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   border-radius: 0.5rem;
@@ -2598,7 +2604,9 @@ textarea.form-control-lg {
 .input-group-sm > .form-select,
 .input-group-sm > .input-group-text,
 .input-group-sm > .btn,
-.form_block .input-group-sm > input[type=submit] {
+.form_block .input-group-sm > input[type=submit],
+.input-group-sm > .btn-previous,
+.input-group-sm > .btn-next {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   border-radius: 0.25rem;
@@ -2814,7 +2822,8 @@ textarea.form-control-lg {
   z-index: 4;
 }
 
-.btn, .form_block input[type=submit] {
+.btn, .form_block input[type=submit], .btn-previous,
+.btn-next {
   --bs-btn-padding-x: 0.75rem;
   --bs-btn-padding-y: 0.375rem;
   --bs-btn-font-family: ;
@@ -2850,41 +2859,59 @@ textarea.form-control-lg {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .btn, .form_block input[type=submit] {
+  .btn, .form_block input[type=submit], .btn-previous,
+  .btn-next {
     transition: none;
   }
 }
-.btn:hover, .form_block input[type=submit]:hover {
+.btn:hover, .form_block input[type=submit]:hover, .btn-previous:hover,
+.btn-next:hover {
   color: var(--bs-btn-hover-color);
   background-color: var(--bs-btn-hover-bg);
   border-color: var(--bs-btn-hover-border-color);
 }
-.btn-check + .btn:hover, .form_block .btn-check + input[type=submit]:hover {
+.btn-check + .btn:hover, .form_block .btn-check + input[type=submit]:hover, .btn-check + .btn-previous:hover,
+.btn-check + .btn-next:hover {
   color: var(--bs-btn-color);
   background-color: var(--bs-btn-bg);
   border-color: var(--bs-btn-border-color);
 }
-.btn:focus-visible, .form_block input[type=submit]:focus-visible {
+.btn:focus-visible, .form_block input[type=submit]:focus-visible, .btn-previous:focus-visible,
+.btn-next:focus-visible {
   color: var(--bs-btn-hover-color);
   background-color: var(--bs-btn-hover-bg);
   border-color: var(--bs-btn-hover-border-color);
   outline: 0;
   box-shadow: var(--bs-btn-focus-box-shadow);
 }
-.btn-check:focus-visible + .btn, .form_block .btn-check:focus-visible + input[type=submit] {
+.btn-check:focus-visible + .btn, .form_block .btn-check:focus-visible + input[type=submit], .btn-check:focus-visible + .btn-previous,
+.btn-check:focus-visible + .btn-next {
   border-color: var(--bs-btn-hover-border-color);
   outline: 0;
   box-shadow: var(--bs-btn-focus-box-shadow);
 }
-.btn-check:checked + .btn, .form_block .btn-check:checked + input[type=submit], :not(.btn-check) + .btn:active, .form_block :not(.btn-check) + input[type=submit]:active, .btn:first-child:active, .form_block input[type=submit]:first-child:active, .btn.active, .form_block input.active[type=submit], .btn.show, .form_block input.show[type=submit] {
+.btn-check:checked + .btn, .form_block .btn-check:checked + input[type=submit], .btn-check:checked + .btn-previous,
+.btn-check:checked + .btn-next, :not(.btn-check) + .btn:active, .form_block :not(.btn-check) + input[type=submit]:active, :not(.btn-check) + .btn-previous:active,
+:not(.btn-check) + .btn-next:active, .btn:first-child:active, .form_block input[type=submit]:first-child:active, .btn-previous:first-child:active,
+.btn-next:first-child:active, .btn.active, .form_block input.active[type=submit], .active.btn-previous,
+.active.btn-next, .btn.show, .form_block input.show[type=submit], .show.btn-previous,
+.show.btn-next {
   color: var(--bs-btn-active-color);
   background-color: var(--bs-btn-active-bg);
   border-color: var(--bs-btn-active-border-color);
 }
-.btn-check:checked + .btn:focus-visible, .form_block .btn-check:checked + input[type=submit]:focus-visible, :not(.btn-check) + .btn:active:focus-visible, .form_block :not(.btn-check) + input[type=submit]:active:focus-visible, .btn:first-child:active:focus-visible, .form_block input[type=submit]:first-child:active:focus-visible, .btn.active:focus-visible, .form_block input.active[type=submit]:focus-visible, .btn.show:focus-visible, .form_block input.show[type=submit]:focus-visible {
+.btn-check:checked + .btn:focus-visible, .form_block .btn-check:checked + input[type=submit]:focus-visible, .btn-check:checked + .btn-previous:focus-visible,
+.btn-check:checked + .btn-next:focus-visible, :not(.btn-check) + .btn:active:focus-visible, .form_block :not(.btn-check) + input[type=submit]:active:focus-visible, :not(.btn-check) + .btn-previous:active:focus-visible,
+:not(.btn-check) + .btn-next:active:focus-visible, .btn:first-child:active:focus-visible, .form_block input[type=submit]:first-child:active:focus-visible, .btn-previous:first-child:active:focus-visible,
+.btn-next:first-child:active:focus-visible, .btn.active:focus-visible, .form_block input.active[type=submit]:focus-visible, .active.btn-previous:focus-visible,
+.active.btn-next:focus-visible, .btn.show:focus-visible, .form_block input.show[type=submit]:focus-visible, .show.btn-previous:focus-visible,
+.show.btn-next:focus-visible {
   box-shadow: var(--bs-btn-focus-box-shadow);
 }
-.btn:disabled, .form_block input[type=submit]:disabled, .btn.disabled, .form_block input.disabled[type=submit], fieldset:disabled .btn, fieldset:disabled .form_block input[type=submit], .form_block fieldset:disabled input[type=submit] {
+.btn:disabled, .form_block input[type=submit]:disabled, .btn-previous:disabled,
+.btn-next:disabled, .btn.disabled, .form_block input.disabled[type=submit], .disabled.btn-previous,
+.disabled.btn-next, fieldset:disabled .btn, fieldset:disabled .form_block input[type=submit], .form_block fieldset:disabled input[type=submit], fieldset:disabled .btn-previous,
+fieldset:disabled .btn-next {
   color: var(--bs-btn-disabled-color);
   pointer-events: none;
   background-color: var(--bs-btn-disabled-bg);
@@ -2892,7 +2919,8 @@ textarea.form-control-lg {
   opacity: var(--bs-btn-disabled-opacity);
 }
 
-.btn-primary, .form_block input[type=submit] {
+.btn-primary, .form_block input[type=submit], .btn-previous,
+.btn-next {
   --bs-btn-color: #000;
   --bs-btn-bg: #5d7f9c;
   --bs-btn-border-color: #5d7f9c;
@@ -3186,14 +3214,16 @@ textarea.form-control-lg {
   color: var(--bs-btn-hover-color);
 }
 
-.btn-lg, .btn-group-lg > .btn, .form_block .btn-group-lg > input[type=submit] {
+.btn-lg, .btn-group-lg > .btn, .form_block .btn-group-lg > input[type=submit], .btn-group-lg > .btn-previous,
+.btn-group-lg > .btn-next {
   --bs-btn-padding-y: 0.5rem;
   --bs-btn-padding-x: 1rem;
   --bs-btn-font-size: 1.25rem;
   --bs-btn-border-radius: 0.5rem;
 }
 
-.btn-sm, .btn-group-sm > .btn, .form_block .btn-group-sm > input[type=submit] {
+.btn-sm, .btn-group-sm > .btn, .form_block .btn-group-sm > input[type=submit], .btn-group-sm > .btn-previous,
+.btn-group-sm > .btn-next {
   --bs-btn-padding-y: 0.25rem;
   --bs-btn-padding-x: 0.5rem;
   --bs-btn-font-size: 0.875rem;
@@ -3559,35 +3589,61 @@ textarea.form-control-lg {
   display: inline-flex;
   vertical-align: middle;
 }
-.btn-group > .btn, .form_block .btn-group > input[type=submit],
+.btn-group > .btn, .form_block .btn-group > input[type=submit], .btn-group > .btn-previous,
+.btn-group > .btn-next,
 .btn-group-vertical > .btn,
-.form_block .btn-group-vertical > input[type=submit] {
+.form_block .btn-group-vertical > input[type=submit],
+.btn-group-vertical > .btn-previous,
+.btn-group-vertical > .btn-next {
   position: relative;
   flex: 1 1 auto;
 }
-.btn-group > .btn-check:checked + .btn, .form_block .btn-group > .btn-check:checked + input[type=submit],
+.btn-group > .btn-check:checked + .btn, .form_block .btn-group > .btn-check:checked + input[type=submit], .btn-group > .btn-check:checked + .btn-previous,
+.btn-group > .btn-check:checked + .btn-next,
 .btn-group > .btn-check:focus + .btn,
 .form_block .btn-group > .btn-check:focus + input[type=submit],
+.btn-group > .btn-check:focus + .btn-previous,
+.btn-group > .btn-check:focus + .btn-next,
 .btn-group > .btn:hover,
 .form_block .btn-group > input[type=submit]:hover,
+.btn-group > .btn-previous:hover,
+.btn-group > .btn-next:hover,
 .btn-group > .btn:focus,
 .form_block .btn-group > input[type=submit]:focus,
+.btn-group > .btn-previous:focus,
+.btn-group > .btn-next:focus,
 .btn-group > .btn:active,
 .form_block .btn-group > input[type=submit]:active,
+.btn-group > .btn-previous:active,
+.btn-group > .btn-next:active,
 .btn-group > .btn.active,
 .form_block .btn-group > input.active[type=submit],
+.btn-group > .active.btn-previous,
+.btn-group > .active.btn-next,
 .btn-group-vertical > .btn-check:checked + .btn,
 .form_block .btn-group-vertical > .btn-check:checked + input[type=submit],
+.btn-group-vertical > .btn-check:checked + .btn-previous,
+.btn-group-vertical > .btn-check:checked + .btn-next,
 .btn-group-vertical > .btn-check:focus + .btn,
 .form_block .btn-group-vertical > .btn-check:focus + input[type=submit],
+.btn-group-vertical > .btn-check:focus + .btn-previous,
+.btn-group-vertical > .btn-check:focus + .btn-next,
 .btn-group-vertical > .btn:hover,
 .form_block .btn-group-vertical > input[type=submit]:hover,
+.btn-group-vertical > .btn-previous:hover,
+.btn-group-vertical > .btn-next:hover,
 .btn-group-vertical > .btn:focus,
 .form_block .btn-group-vertical > input[type=submit]:focus,
+.btn-group-vertical > .btn-previous:focus,
+.btn-group-vertical > .btn-next:focus,
 .btn-group-vertical > .btn:active,
 .form_block .btn-group-vertical > input[type=submit]:active,
+.btn-group-vertical > .btn-previous:active,
+.btn-group-vertical > .btn-next:active,
 .btn-group-vertical > .btn.active,
-.form_block .btn-group-vertical > input.active[type=submit] {
+.form_block .btn-group-vertical > input.active[type=submit],
+.btn-group-vertical > .active.btn-previous,
+.btn-group-vertical > .active.btn-next {
   z-index: 1;
 }
 
@@ -3603,23 +3659,34 @@ textarea.form-control-lg {
 .btn-group {
   border-radius: 0.375rem;
 }
-.btn-group > :not(.btn-check:first-child) + .btn, .form_block .btn-group > :not(.btn-check:first-child) + input[type=submit],
+.btn-group > :not(.btn-check:first-child) + .btn, .form_block .btn-group > :not(.btn-check:first-child) + input[type=submit], .btn-group > :not(.btn-check:first-child) + .btn-previous,
+.btn-group > :not(.btn-check:first-child) + .btn-next,
 .btn-group > .btn-group:not(:first-child) {
   margin-left: -1px;
 }
-.btn-group > .btn:not(:last-child):not(.dropdown-toggle), .form_block .btn-group > input[type=submit]:not(:last-child):not(.dropdown-toggle),
+.btn-group > .btn:not(:last-child):not(.dropdown-toggle), .form_block .btn-group > input[type=submit]:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-previous:not(:last-child):not(.dropdown-toggle),
+.btn-group > .btn-next:not(:last-child):not(.dropdown-toggle),
 .btn-group > .btn.dropdown-toggle-split:first-child,
 .form_block .btn-group > input.dropdown-toggle-split[type=submit]:first-child,
+.btn-group > .dropdown-toggle-split.btn-previous:first-child,
+.btn-group > .dropdown-toggle-split.btn-next:first-child,
 .btn-group > .btn-group:not(:last-child) > .btn,
-.form_block .btn-group > .btn-group:not(:last-child) > input[type=submit] {
+.form_block .btn-group > .btn-group:not(:last-child) > input[type=submit],
+.btn-group > .btn-group:not(:last-child) > .btn-previous,
+.btn-group > .btn-group:not(:last-child) > .btn-next {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-.btn-group > .btn:nth-child(n+3), .form_block .btn-group > input[type=submit]:nth-child(n+3),
+.btn-group > .btn:nth-child(n+3), .form_block .btn-group > input[type=submit]:nth-child(n+3), .btn-group > .btn-previous:nth-child(n+3),
+.btn-group > .btn-next:nth-child(n+3),
 .btn-group > :not(.btn-check) + .btn,
 .form_block .btn-group > :not(.btn-check) + input[type=submit],
+.btn-group > :not(.btn-check) + .btn-previous,
+.btn-group > :not(.btn-check) + .btn-next,
 .btn-group > .btn-group:not(:first-child) > .btn,
-.form_block .btn-group > .btn-group:not(:first-child) > input[type=submit] {
+.form_block .btn-group > .btn-group:not(:first-child) > input[type=submit],
+.btn-group > .btn-group:not(:first-child) > .btn-previous,
+.btn-group > .btn-group:not(:first-child) > .btn-next {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -3635,12 +3702,14 @@ textarea.form-control-lg {
   margin-right: 0;
 }
 
-.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split, .form_block .btn-group-sm > input[type=submit] + .dropdown-toggle-split {
+.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split, .form_block .btn-group-sm > input[type=submit] + .dropdown-toggle-split, .btn-group-sm > .btn-previous + .dropdown-toggle-split,
+.btn-group-sm > .btn-next + .dropdown-toggle-split {
   padding-right: 0.375rem;
   padding-left: 0.375rem;
 }
 
-.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split, .form_block .btn-group-lg > input[type=submit] + .dropdown-toggle-split {
+.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split, .form_block .btn-group-lg > input[type=submit] + .dropdown-toggle-split, .btn-group-lg > .btn-previous + .dropdown-toggle-split,
+.btn-group-lg > .btn-next + .dropdown-toggle-split {
   padding-right: 0.75rem;
   padding-left: 0.75rem;
 }
@@ -3650,23 +3719,37 @@ textarea.form-control-lg {
   align-items: flex-start;
   justify-content: center;
 }
-.btn-group-vertical > .btn, .form_block .btn-group-vertical > input[type=submit],
+.btn-group-vertical > .btn, .form_block .btn-group-vertical > input[type=submit], .btn-group-vertical > .btn-previous,
+.btn-group-vertical > .btn-next,
 .btn-group-vertical > .btn-group {
   width: 100%;
 }
-.btn-group-vertical > .btn:not(:first-child), .form_block .btn-group-vertical > input[type=submit]:not(:first-child),
+.btn-group-vertical > .btn:not(:first-child), .form_block .btn-group-vertical > input[type=submit]:not(:first-child), .btn-group-vertical > .btn-previous:not(:first-child),
+.btn-group-vertical > .btn-next:not(:first-child),
 .btn-group-vertical > .btn-group:not(:first-child) {
   margin-top: -1px;
 }
-.btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle), .form_block .btn-group-vertical > input[type=submit]:not(:last-child):not(.dropdown-toggle),
+.btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle), .form_block .btn-group-vertical > input[type=submit]:not(:last-child):not(.dropdown-toggle), .btn-group-vertical > .btn-previous:not(:last-child):not(.dropdown-toggle),
+.btn-group-vertical > .btn-next:not(:last-child):not(.dropdown-toggle),
 .btn-group-vertical > .btn-group:not(:last-child) > .btn,
-.form_block .btn-group-vertical > .btn-group:not(:last-child) > input[type=submit] {
+.form_block .btn-group-vertical > .btn-group:not(:last-child) > input[type=submit],
+.btn-group-vertical > .btn-group:not(:last-child) > .btn-previous,
+.btn-group-vertical > .btn-group:not(:last-child) > .btn-next {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-.btn-group-vertical > .btn ~ .btn, .form_block .btn-group-vertical > input[type=submit] ~ .btn, .form_block .btn-group-vertical > .btn ~ input[type=submit], .form_block .btn-group-vertical > input[type=submit] ~ input[type=submit],
+.btn-group-vertical > .btn ~ .btn, .form_block .btn-group-vertical > input[type=submit] ~ .btn, .form_block .btn-group-vertical > .btn ~ input[type=submit], .form_block .btn-group-vertical > input[type=submit] ~ input[type=submit], .btn-group-vertical > .btn-previous ~ .btn, .form_block .btn-group-vertical > .btn-previous ~ input[type=submit],
+.btn-group-vertical > .btn-next ~ .btn,
+.form_block .btn-group-vertical > .btn-next ~ input[type=submit], .btn-group-vertical > .btn ~ .btn-previous, .form_block .btn-group-vertical > input[type=submit] ~ .btn-previous, .btn-group-vertical > .btn-previous ~ .btn-previous,
+.btn-group-vertical > .btn-next ~ .btn-previous,
+.btn-group-vertical > .btn ~ .btn-next,
+.form_block .btn-group-vertical > input[type=submit] ~ .btn-next,
+.btn-group-vertical > .btn-previous ~ .btn-next,
+.btn-group-vertical > .btn-next ~ .btn-next,
 .btn-group-vertical > .btn-group:not(:first-child) > .btn,
-.form_block .btn-group-vertical > .btn-group:not(:first-child) > input[type=submit] {
+.form_block .btn-group-vertical > .btn-group:not(:first-child) > input[type=submit],
+.btn-group-vertical > .btn-group:not(:first-child) > .btn-previous,
+.btn-group-vertical > .btn-group:not(:first-child) > .btn-next {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -4681,7 +4764,8 @@ textarea.form-control-lg {
   display: none;
 }
 
-.btn .badge, .form_block input[type=submit] .badge {
+.btn .badge, .form_block input[type=submit] .badge, .btn-previous .badge,
+.btn-next .badge {
   position: relative;
   top: -1px;
 }
@@ -6676,7 +6760,8 @@ textarea.form-control-lg {
   background-color: currentcolor;
   opacity: 0.5;
 }
-.placeholder.btn::before, .form_block input.placeholder[type=submit]::before {
+.placeholder.btn::before, .form_block input.placeholder[type=submit]::before, .placeholder.btn-previous::before,
+.placeholder.btn-next::before {
   display: inline-block;
   content: "";
 }
@@ -21826,20 +21911,99 @@ strong,
   color: var(--col-blue-400);
 }
 
-.button {
-  background-color: var(--col-accent-400);
-  border: 1px solid var(--col-accent-400);
-  color: var(--col-dark);
-  padding: 0.75rem 1.5rem;
+.btn, .form_block input[type=submit], .btn-previous,
+.btn-next {
+  font-weight: var(--fw-bold);
+  font-family: var(--ff-body);
+  min-width: 200px;
+  height: 56px;
+  border-radius: 28px;
+  padding-top: 16px;
   text-decoration: none;
-  font-weight: var(--fw-800);
-  font-size: var(--fs-300);
-  text-transform: uppercase;
-  transition: background-color var(--transition);
 }
-.button:hover {
-  background-color: color-mix(in srgb, var(--col-accent-400), white 20%);
-  color: var(--col-dark);
+
+.btn-primary, .form_block input[type=submit], .btn-previous,
+.btn-next {
+  background-color: #fff !important;
+  color: var(--col-aqua-400);
+  border: 1px solid var(--col-aqua-400) !important;
+  transition: all 0.3s ease;
+  box-shadow: 0px 2px 0px 1px rgba(0, 0, 0, 0.1);
+}
+.btn-primary:hover, .form_block input[type=submit]:hover, .btn-previous:hover,
+.btn-next:hover, .btn-primary:focus, .form_block input[type=submit]:focus, .btn-previous:focus,
+.btn-next:focus, .btn-primary:active, .form_block input[type=submit]:active, .btn-previous:active,
+.btn-next:active {
+  background-color: var(--col-aqua-400) !important;
+  color: #fff;
+  box-shadow: none;
+}
+
+.btn-header {
+  margin: 1rem auto;
+  display: block;
+  width: 160px;
+  min-width: 160px;
+  height: 45px;
+  line-height: 1;
+  font-size: 0.875rem;
+  font-weight: 700 !important;
+  background-color: #fff !important;
+  color: var(--col-aqua-400);
+  border: 1px solid var(--col-aqua-400) !important;
+  transition: all 0.3s ease;
+  box-shadow: 0px 2px 0px 1px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 992px) {
+  .btn-header {
+    display: inline-block;
+    margin: unset;
+  }
+}
+.btn-header:hover, .btn-header:focus, .btn-header:active {
+  background-color: var(--col-aqua-400) !important;
+  color: #fff;
+  box-shadow: none;
+}
+
+.btn--blue {
+  background-color: var(--col-aqua-400)-300 !important;
+}
+.btn--blue:hover, .btn--blue:focus, .btn--blue:active {
+  background-color: white !important;
+  color: var(--col-aqua-400);
+}
+
+.btn-secondary {
+  background-color: #fff !important;
+  color: var(--col-purple-400);
+  border: 1px solid var(--col-purple-400) !important;
+  transition: all 0.3s ease;
+  box-shadow: 0px 2px 0px 1px rgba(0, 0, 0, 0.1);
+}
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
+  background-color: var(--col-purple-400) !important;
+  color: #fff;
+  box-shadow: none;
+}
+
+.btn-large {
+  width: 300px;
+}
+
+.btn-next::after {
+  content: "\f105";
+  font-family: var(--ff-fa);
+  margin-left: 0.5rem;
+}
+
+.btn-previous::before {
+  content: "\f104";
+  font-family: var(--ff-fa);
+  margin-right: 0.5rem;
+}
+.btn-previous::after {
+  content: "";
 }
 
 header {
