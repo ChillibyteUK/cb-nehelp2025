@@ -1,0 +1,15 @@
+.button {
+  background-color: var(--col-accent-400);
+  border: 1px solid var(--col-accent-400);
+  color: var(--col-dark);
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  font-weight: var(--fw-800);
+  font-size: var(--fs-300);
+  text-transform: uppercase;
+  transition: background-color var(--transition);
+  &:hover {
+    background-color: color-mix(in srgb, var(--col-accent-400), white 20%);
+    color: var(--col-dark);
+  }
+}

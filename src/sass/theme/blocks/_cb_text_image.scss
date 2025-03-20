@@ -1,0 +1,234 @@
+.text_image {
+  position: relative;
+  z-index: 0;
+  &.circle_bg--right--gold::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 300' ><defs><style>.cls-1{fill:%23fec671;fill-opacity:0.15;}</style></defs><g><path class='cls-1' d='M150,0V300A150,150,0,0,1,150,0Z'/></g></svg>");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  &.circle_bg--right--purple::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 300' ><defs><style>.cls-1{fill:%23ba459b;fill-opacity:0.15;}</style></defs><g><path class='cls-1' d='M150,0V300A150,150,0,0,1,150,0Z'/></g></svg>");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &.circle_bg--left--gold::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 300' ><defs><style>.cls-1{fill:%23fec671;fill-opacity:0.15;}</style></defs><g><path class='cls-1' d='M150,150A150,150,0,0,1,0,300V0A150,150,0,0,1,150,150Z'/></g></svg>");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  &.circle_bg--left--purple::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 300' ><defs><style>.cls-1{fill:%23ba459b;fill-opacity:0.15;}</style></defs><g><path class='cls-1' d='M150,150A150,150,0,0,1,0,300V0A150,150,0,0,1,150,150Z'/></g></svg>");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .content {
+    margin-bottom: 2rem;
+  }
+  &__image {
+    padding: 3rem 2rem 0 2rem;
+    @media (min-width: 992px) {
+      &.padding--portrait {
+        padding: 3rem 4rem;
+      }
+      &.padding--landscape {
+        padding: 3rem 3rem;
+      }
+    }
+    @media (min-width: 1240px) {
+      &.padding--portrait {
+        padding: 3rem 7rem;
+      }
+      &.padding--landscape {
+        padding: 4rem 4rem;
+      }
+    }
+    .image_container {
+      width: 100%;
+      aspect-ratio: 6/4;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0px 2px 15px 2px rgba(0, 0, 0, 0.15);
+      border-radius: 1.25rem;
+      position: relative;
+    }
+    .image_container {
+      @media (min-width: 992px) {
+        &.image--portrait {
+          aspect-ratio: 8/10;
+        }
+        &.image--landscape {
+          aspect-ratio: 10/8;
+        }
+      }
+
+      &.top_star::before {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: url(/wp-content/themes/cb-nehelp2025/img/star-aqua.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        @media (min-width: 1240px) {
+          width: 200px;
+          height: 200px;
+        }
+      }
+      &.decoration--right {
+        &.top_star:before {
+          top: -50px;
+          left: -50px;
+          @media (min-width: 1240px) {
+            top: -80px;
+            left: -100px;
+          }
+        }
+      }
+      &.decoration--left {
+        &.top_star:before {
+          top: -50px;
+          right: -50px;
+          @media (min-width: 1240px) {
+            top: -100px;
+            right: -100px;
+          }
+        }
+      }
+
+      &.top_star--behind::before {
+        z-index: -1;
+      }
+
+      &.bottom_star::after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        @media (min-width: 1240px) {
+          width: 80px;
+          height: 80px;
+        }
+      }
+      &.bottom_star--gold::after {
+        background: url(/wp-content/themes/cb-nehelp2025/img/star-gold.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      &.bottom_star--purple::after {
+        background: url(/wp-content/themes/cb-nehelp2025/img/star-purple.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      &.decoration--right {
+        &.bottom_star::after {
+          bottom: -20px;
+          right: 30px;
+          @media (min-width: 1240px) {
+            bottom: -35px;
+            right: 30px;
+          }
+        }
+      }
+      &.decoration--left {
+        &.bottom_star::after {
+          bottom: -20px;
+          left: 30px;
+          @media (min-width: 1240px) {
+            bottom: -35px;
+            left: 30px;
+          }
+        }
+      }
+
+      &.decoration--right {
+        &.nhs_logo::after {
+          bottom: -20px;
+          right: -20px;
+          @media (min-width: 576px) {
+            bottom: -40px;
+            right: -40px;
+          }
+          @media (min-width: 768px) {
+            bottom: -40px;
+            right: -40px;
+          }
+          @media (min-width: 992px) {
+            bottom: -50px;
+            right: -50px;
+          }
+          @media (min-width: 1240px) {
+            bottom: -70px;
+            right: -80px;
+          }
+        }
+      }
+      &.decoration--left {
+        &.nhs_logo::after {
+          bottom: -20px;
+          left: -20px;
+          @media (min-width: 576px) {
+            bottom: -40px;
+            left: -40px;
+          }
+          @media (min-width: 768px) {
+            bottom: -40px;
+            left: -40px;
+          }
+          @media (min-width: 992px) {
+            bottom: -50px;
+            left: -50px;
+          }
+          @media (min-width: 1240px) {
+            bottom: -70px;
+            left: -80px;
+          }
+        }
+      }
+    }
+    // }
+  }
+}

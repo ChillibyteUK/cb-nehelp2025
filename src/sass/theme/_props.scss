@@ -1,0 +1,66 @@
+$col-primary: #5d7f9c;
+$col-dark: #666666; // #4a4a4a;
+$col-darkest: #4a4a4a;
+$col-light: #f2f2f2;
+
+:root {
+  /* Colours */
+  --hsl-dark: 0 0% 20%; // black
+  --col-dark: hsl(var(--hsl-dark));
+
+  --hsl-light: 210 12% 75%; // light text
+  --col-light: hsl(var(--hsl-light));
+
+  --col-white: #ffffff;
+
+  --hsl-blue-400: 210 58% 17%; // #122b44
+  --col-blue-400: hsl(var(--hsl-blue-400));
+  --col-blue-tx: hsl(var(--hsl-blue-400) / 0.9);
+  --col-blue-10: hsl(var(--hsl-blue-400) / 0.15);
+
+  --hsl-aqua-400: 192 50% 47%; // #3c9cb4
+  --col-aqua-400: hsl(var(--hsl-aqua-400));
+  --col-aqua-50: hsl(var(--hsl-aqua-400) / 0.5);
+
+  --hsl-aqua-300: 185 61% 55%; // #44c7d2
+  --col-aqua-300: hsl(var(--hsl-aqua-300));
+  --col-aqua-tx: hsl(var(--hsl-aqua-300) / 0.15);
+
+  --hsl-gold-400: 36 100% 72%; // #ffc671
+  --col-gold-400: hsl(var(--hsl-gold-400));
+
+  --hsl-purple-400: 316 46% 50%; // #ba459b
+  --col-purple-400: hsl(var(--hsl-purple-400));
+
+  --grey-300: #f8f8f8;
+  --grey-350: #ebf5f7;
+  --grey-400: #dbdbdb;
+
+  /* Font Sizes */
+
+  --fs-900: 2.75rem;
+  --fs-800: clamp(2.5rem, 10vw, 4rem);
+  --fs-700: clamp(2rem, 10vw, 2.5rem);
+  --fs-600: clamp(1.8rem, 10vw, 2rem);
+  --fs-500: clamp(1.125rem, 10vw, 1.5rem);
+  --fs-400: 1rem;
+  --fs-300: 0.875rem;
+  --fs-200: 0.75rem;
+  --fs-100: 0.667rem;
+
+  /* Font Families */
+  --ff-body: "Museo Sans", Tahoma, Geneva, Verdana, sans-serif;
+  --ff-heading: "Museo Sans", Tahoma, Geneva, Verdana, sans-serif;
+  --ff-fa: "Font Awesome 6 Free";
+
+  /* Font Weights */
+  --fw-400: 500;
+  --fw-700: 700;
+
+  /* Effects */
+  --transition: 250ms ease-out;
+
+  /* Site General */
+  --h-top: 85px;
+  --h-top-desktop: 125px;
+}

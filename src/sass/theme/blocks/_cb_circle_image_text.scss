@@ -1,0 +1,61 @@
+.alternating_circle_image_text {
+  @media (min-width: 992px) {
+    background-image: url(../img/circle-bg-2.svg);
+    background-size: 100%;
+    background-repeat: repeat-y;
+    // background-repeat: no-repeat;
+    background-position: top;
+  }
+  .h3 {
+    max-width: 21ch;
+  }
+  .content {
+    max-width: 50ch;
+  }
+  .image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 450px;
+    &__image {
+      border-radius: 50%;
+      width: 60%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+    &__overlay--aqua,
+    &__overlay--gold,
+    &__overlay--purple,
+    &__overlay--aqua-2 {
+      position: relative;
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+    &__overlay--aqua::after {
+      background-image: url(../img/circle-overlay--aqua.svg);
+    }
+    &__overlay--gold::after {
+      background-image: url(../img/circle-overlay--gold.svg);
+    }
+    &__overlay--purple::after {
+      background-image: url(../img/circle-overlay--purple.svg);
+    }
+    &__overlay--aqua-2::after {
+      background-image: url(../img/circle-overlay--aqua-2.svg);
+    }
+  }
+}
