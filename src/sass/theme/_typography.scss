@@ -93,8 +93,15 @@ strong,
   text-wrap: balance;
 }
 
+.max-ch {
+  &.text-center {
+    margin: 0 auto;
+  }
+  max-width: 60ch;
+}
 .max-ch--auto {
   max-width: 90ch;
+  margin: auto;
 }
 
 .pre_title {
