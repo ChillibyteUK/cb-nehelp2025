@@ -20,7 +20,8 @@ defined('ABSPATH') || exit;
                 <div class="mb-1"><?= do_shortcode('[contact_email]') ?></div>
 
                 <?php
-                if (!empty(get_field('social', 'options'))) {
+				$social = get_field('social', 'options');
+                if ( ! empty( $social ) && array_filter( $social ) ) {
                     echo '<div class="footer__title mt-4">Follow Us</div>';
                     echo do_shortcode('[social_icons class="d-flex justify-content-start gap-4"]');
                 }
