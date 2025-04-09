@@ -34,4 +34,13 @@
     font-size: var(--fs-200);
     color: var(--col-light);
   }
+
+  .cb {
+    content: url(../img/cb.png);
+    transition: opacity var(--transition);
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
 }

@@ -22120,6 +22120,13 @@ header .contact-info a:hover {
   font-size: var(--fs-200);
   color: var(--col-light);
 }
+.footer .cb {
+  content: url(../img/cb.png);
+  transition: opacity var(--transition);
+}
+.footer .cb:hover {
+  opacity: 0.8;
+}
 
 .form-check {
   padding-left: 0;
