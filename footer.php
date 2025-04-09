@@ -17,7 +17,7 @@ defined('ABSPATH') || exit;
             </div>
             <div class="col-md-3">
                 <div class="mb-1"><?= do_shortcode('[contact_phone]') ?></div>
-                <div class="mb-1"><?= do_shortcode('[contact_email]') ?></div>
+                <!-- <div class="mb-1"><?= do_shortcode('[contact_email]') ?></div> -->
 
                 <?php
 				$social = get_field('social', 'options');

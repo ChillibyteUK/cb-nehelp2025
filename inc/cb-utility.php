@@ -28,16 +28,18 @@ add_shortcode('contact_phone', function () {
     return;
 });
 add_shortcode('contact_email', function () {
-    if (get_field('contact_email', 'option')) {
-        return '<a href="mailto:' . get_field('contact_email', 'option') . '">' . get_field('contact_email', 'option') . '</a>';
-    }
-    return;
+	if (get_field('contact_email', 'option')) {
+		$email = antispambot(get_field('contact_email', 'option'));
+		return '<a href="mailto:' . $email . '">' . $email . '</a>';
+	}
+	return;
 });
 add_shortcode('contact_email_icon', function () {
-    if (get_field('contact_email', 'option')) {
-        return '<a href="mailto:' . get_field('contact_email', 'option') . '"><i class="fas fa-envelope"></i></a>';
-    }
-    return;
+	if (get_field('contact_email', 'option')) {
+		$email = antispambot(get_field('contact_email', 'option'));
+		return '<a href="mailto:' . $email . '"><i class="fas fa-envelope"></i></a>';
+	}
+	return;
 });
 
 

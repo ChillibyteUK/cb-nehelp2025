@@ -148,7 +148,7 @@ session_start();
                         <!-- Contact Details (Hidden on Mobile) -->
                         <div class="contact-info d-none d-lg-flex gap-3 w-100 justify-content-end">
                             <?= do_shortcode('[contact_phone]') ?>
-                            <?= do_shortcode('[contact_email]') ?>
+                            <!-- <?= do_shortcode('[contact_email]') ?> -->
                         </div>
 
                         <!-- Navigation -->
