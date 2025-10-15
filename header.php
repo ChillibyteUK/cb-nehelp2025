@@ -128,14 +128,14 @@ session_start();
     <header id="wrapper-navbar" class="fixed-top">
         <nav id="main-nav" class="navbar navbar-expand-lg" aria-labelledby="main-nav-label">
             <div class="container-xl py-2">
-                <div class="d-flex justify-content-between align-items-stretch h-100">
+                <div class="d-flex justify-content-between align-items-stretch h-100 w-100 w-lg-auto">
                     <!-- Logo -->
                     <a href="/" class="logo-container">
                         <img src="<?= get_stylesheet_directory_uri() ?>/img/nehelp-logo--wb.svg" alt="NE Help">
                     </a>
 
                     <!-- Mobile Menu Toggle -->
-                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                    <button class="navbar-toggler d-lg-none text-white" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
                         aria-label="Toggle navigation">
                         <i class="fas fa-bars"></i>
